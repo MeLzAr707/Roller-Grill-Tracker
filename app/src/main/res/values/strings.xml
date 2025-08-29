@@ -129,7 +129,6 @@
     <string name="save_settings">Save Settings</string>
     <string name="suggested_order">Suggested Order</string>
     <string name="order_date">Order Date</string>
-    <string name="refresh">Refresh</string>
     <string name="refresh_order_suggestions">Refresh order suggestions</string>
     <string name="order_summary">Order Summary</string>
     <string name="export_order">Export Order</string>
