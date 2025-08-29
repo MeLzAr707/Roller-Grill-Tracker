@@ -10,8 +10,8 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.yourcompany.rollergrilltracker"
-        minSdk 24
+        applicationId "com.egamerica.rollergrilltracker"
+        minSdk 26
         targetSdk 33
         versionCode 1
         versionName "1.0"
