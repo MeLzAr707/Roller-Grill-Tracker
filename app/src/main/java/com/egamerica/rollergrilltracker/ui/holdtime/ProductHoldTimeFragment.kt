@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.egamerica.rollergrilltracker.databinding.FragmentProductHoldTimeBinding
+import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,6 +19,8 @@ class ProductHoldTimeFragment : Fragment() {
     private val binding get() = _binding!!
     
     private val viewModel: ProductHoldTimeViewModel by viewModels()
+    
+    private lateinit var pagerAdapter: GrillHoldTimePagerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,17 +39,36 @@ class ProductHoldTimeFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        binding.recyclerViewHoldTimes.layoutManager = LinearLayoutManager(requireContext())
-        // TODO: Set up adapter when layout is ready
+        binding.expiredProductsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        // TODO: Set up adapter for expired products when ready
+    }
+
+    private fun setupViewPager(grillConfigs: List<com.egamerica.rollergrilltracker.data.entities.GrillConfig>) {
+        pagerAdapter = GrillHoldTimePagerAdapter(requireActivity(), grillConfigs)
+        binding.grillViewPager.adapter = pagerAdapter
+        
+        // Setup TabLayout with ViewPager2
+        TabLayoutMediator(binding.grillTabs, binding.grillViewPager) { tab, position ->
+            tab.text = pagerAdapter.getGrillName(position)
+        }.attach()
     }
 
     private fun observeViewModel() {
-        viewModel.slotsWithProducts.observe(viewLifecycleOwner, Observer { slotsWithProducts ->
-            // TODO: Update adapter when layout is ready
+        viewModel.activeGrillConfigs.observe(viewLifecycleOwner, Observer { grillConfigs ->
+            if (grillConfigs.isNotEmpty()) {
+                setupViewPager(grillConfigs)
+            }
         })
 
-        viewModel.productHoldTimes.observe(viewLifecycleOwner, Observer { holdTimes ->
-            // TODO: Update adapter when layout is ready
+        viewModel.expiredProducts.observe(viewLifecycleOwner, Observer { expiredProducts ->
+            if (expiredProducts.isEmpty()) {
+                binding.noExpiredProductsText.visibility = View.VISIBLE
+                binding.expiredProductsRecyclerView.visibility = View.GONE
+            } else {
+                binding.noExpiredProductsText.visibility = View.GONE
+                binding.expiredProductsRecyclerView.visibility = View.VISIBLE
+                // TODO: Update adapter when ready
+            }
         })
 
         viewModel.isLoading.observe(viewLifecycleOwner, Observer { isLoading ->

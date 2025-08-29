@@ -6,7 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.egamerica.rollergrilltracker.data.dao.ProductWithHoldTime
 import com.egamerica.rollergrilltracker.data.dao.SlotWithProduct
+import com.egamerica.rollergrilltracker.data.entities.GrillConfig
 import com.egamerica.rollergrilltracker.data.entities.ProductHoldTime
+import com.egamerica.rollergrilltracker.data.repositories.GrillConfigRepository
 import com.egamerica.rollergrilltracker.data.repositories.ProductHoldTimeRepository
 import com.egamerica.rollergrilltracker.data.repositories.SlotRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,7 +22,8 @@ import javax.inject.Inject
 @HiltViewModel
 class ProductHoldTimeViewModel @Inject constructor(
     private val productHoldTimeRepository: ProductHoldTimeRepository,
-    private val slotRepository: SlotRepository
+    private val slotRepository: SlotRepository,
+    private val grillConfigRepository: GrillConfigRepository
 ) : ViewModel() {
 
     private val _activeHoldTimes = MutableLiveData<List<ProductHoldTime>>()
@@ -28,6 +31,21 @@ class ProductHoldTimeViewModel @Inject constructor(
 
     private val _activeHoldTimesWithProducts = MutableLiveData<List<ProductWithHoldTime>>()
     val activeHoldTimesWithProducts: LiveData<List<ProductWithHoldTime>> = _activeHoldTimesWithProducts
+
+    private val _holdTimesByGrill = MutableLiveData<Map<Int, List<ProductHoldTime>>>()
+    val holdTimesByGrill: LiveData<Map<Int, List<ProductHoldTime>>> = _holdTimesByGrill
+
+    private val _slotsWithProducts = MutableLiveData<List<SlotWithProduct>>()
+    val slotsWithProducts: LiveData<List<SlotWithProduct>> = _slotsWithProducts
+
+    private val _expiredHoldTimes = MutableLiveData<List<ProductHoldTime>>()
+    val expiredHoldTimes: LiveData<List<ProductHoldTime>> = _expiredHoldTimes
+    
+    private val _expiredProducts = MutableLiveData<List<ProductHoldTime>>()
+    val expiredProducts: LiveData<List<ProductHoldTime>> = _expiredProducts
+
+    private val _activeGrillConfigs = MutableLiveData<List<GrillConfig>>()
+    val activeGrillConfigs: LiveData<List<GrillConfig>> = _activeGrillConfigs
 
     private val _holdTimesByGrill = MutableLiveData<Map<Int, List<ProductHoldTime>>>()
     val holdTimesByGrill: LiveData<Map<Int, List<ProductHoldTime>>> = _holdTimesByGrill
@@ -50,6 +68,7 @@ class ProductHoldTimeViewModel @Inject constructor(
     init {
         loadActiveHoldTimes()
         loadSlotsWithProducts()
+        loadActiveGrillConfigs()
         startHoldTimeMonitoring()
     }
 
@@ -121,6 +140,18 @@ class ProductHoldTimeViewModel @Inject constructor(
             try {
                 val expired = productHoldTimeRepository.getExpiredHoldTimes()
                 _expiredHoldTimes.value = expired
+                _expiredProducts.value = expired
+            } catch (e: Exception) {
+                // Handle error
+            }
+        }
+    }
+
+    private fun loadActiveGrillConfigs() {
+        viewModelScope.launch {
+            try {
+                val grillConfigs = grillConfigRepository.getActiveGrillConfigs().first()
+                _activeGrillConfigs.value = grillConfigs
             } catch (e: Exception) {
                 // Handle error
             }
