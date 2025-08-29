@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dashboardFragment">
+
+    <!-- Existing fragments -->
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.yourcompany.rollergrilltracker.ui.dashboard.DashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard">
+        <!-- Add navigation actions to new fragments -->
+        <action
+            android:id="@+id/action_dashboardFragment_to_productHoldTimeFragment"
+            app:destination="@id/productHoldTimeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.yourcompany.rollergrilltracker.ui.settings.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings">
+        <!-- Add navigation actions to new fragments -->
+        <action
+            android:id="@+id/action_settingsFragment_to_grillConfigFragment"
+            app:destination="@id/grillConfigFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_storeHoursSettingsFragment"
+            app:destination="@id/storeHoursSettingsFragment" />
+    </fragment>
+
+    <!-- New fragments for enhancements -->
+    <fragment
+        android:id="@+id/grillConfigFragment"
+        android:name="com.yourcompany.rollergrilltracker.ui.settings.GrillConfigFragment"
+        android:label="Grill Configuration"
+        tools:layout="@layout/fragment_grill_config" />
+
+    <fragment
+        android:id="@+id/storeHoursSettingsFragment"
+        android:name="com.yourcompany.rollergrilltracker.ui.settings.StoreHoursSettingsFragment"
+        android:label="Store Hours Settings"
+        tools:layout="@layout/fragment_store_hours_settings" />
+
+    <fragment
+        android:id="@+id/productHoldTimeFragment"
+        android:name="com.yourcompany.rollergrilltracker.ui.holdtime.ProductHoldTimeFragment"
+        android:label="Product Hold Times"
+        tools:layout="@layout/fragment_product_hold_time" />
+
+</navigation>

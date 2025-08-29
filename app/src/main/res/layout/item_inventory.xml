@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/text_product_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Hot Dog" />
+
+        <TextView
+            android:id="@+id/text_starting_count_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/starting_count"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_product_name" />
+
+        <EditText
+            android:id="@+id/edit_starting_count"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:inputType="number"
+            android:maxLength="3"
+            android:minHeight="48dp"
+            android:text="0"
+            android:textAlignment="center"
+            app:layout_constraintBaseline_toBaselineOf="@id/text_starting_count_label"
+            app:layout_constraintStart_toEndOf="@id/text_starting_count_label" />
+
+        <TextView
+            android:id="@+id/text_delivery_count_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/delivery_count"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_starting_count_label" />
+
+        <EditText
+            android:id="@+id/edit_delivery_count"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:inputType="number"
+            android:maxLength="3"
+            android:minHeight="48dp"
+            android:text="0"
+            android:textAlignment="center"
+            app:layout_constraintBaseline_toBaselineOf="@id/text_delivery_count_label"
+            app:layout_constraintStart_toEndOf="@id/text_delivery_count_label" />
+
+        <TextView
+            android:id="@+id/text_ending_count_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/ending_count"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_delivery_count_label" />
+
+        <EditText
+            android:id="@+id/edit_ending_count"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:inputType="number"
+            android:maxLength="3"
+            android:minHeight="48dp"
+            android:text="0"
+            android:textAlignment="center"
+            app:layout_constraintBaseline_toBaselineOf="@id/text_ending_count_label"
+            app:layout_constraintStart_toEndOf="@id/text_ending_count_label" />
+
+        <TextView
+            android:id="@+id/text_used_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/used"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_ending_count_label" />
+
+        <TextView
+            android:id="@+id/text_used"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@id/text_used_label"
+            app:layout_constraintStart_toEndOf="@id/text_used_label"
+            tools:text="12" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

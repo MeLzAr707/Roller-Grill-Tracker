@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base colors -->
+    <color name="colorPrimary">#4CAF50</color>
+    <color name="colorPrimaryDark">#388E3C</color>
+    <color name="colorAccent">#FF9800</color>
+    <color name="colorAccentDark">#F57C00</color>
+    <color name="colorBackground">#FFFFFF</color>
+    <color name="colorSurface">#FFFFFF</color>
+    <color name="colorError">#F44336</color>
+    <color name="colorGray">#9E9E9E</color>
+    
+    <!-- Text colors -->
+    <color name="textColorPrimary">#212121</color>
+    <color name="textColorSecondary">#757575</color>
+    <color name="textColorTertiary">#9E9E9E</color>
+    <color name="textColorOnPrimary">#FFFFFF</color>
+    <color name="textColorOnAccent">#000000</color>
+    
+    <!-- Status colors -->
+    <color name="colorInStock">#4CAF50</color>
+    <color name="colorOutOfStock">#F44336</color>
+    <color name="colorLowStock">#FFC107</color>
+    <color name="colorInactive">#BDBDBD</color>
+    
+    <!-- Confidence level colors -->
+    <color name="confidenceHigh">#4CAF50</color>
+    <color name="confidenceMedium">#FFC107</color>
+    <color name="confidenceLow">#F44336</color>
+    
+    <!-- Category colors -->
+    <color name="categoryTornado">#2196F3</color>
+    <color name="categoryHotDog">#FF5722</color>
+    <color name="categoryRollerBite">#9C27B0</color>
+    <color name="categoryBrat">#795548</color>
+    <color name="categoryEggRoll">#009688</color>
+    <color name="categorySausage">#FF9800</color>
+    <color name="categoryTamale">#E91E63</color>
+    <color name="categoryDefault">#607D8B</color>
+    
+    <!-- Chart colors -->
+    <color name="chartSales">#4CAF50</color>
+    <color name="chartWaste">#F44336</color>
+    <color name="chartProfit">#2196F3</color>
+    
+    <!-- UI element colors -->
+    <color name="divider">#EEEEEE</color>
+    <color name="ripple">#33000000</color>
+    <color name="cardBackground">#FFFFFF</color>
+    <color name="cardStroke">#E0E0E0</color>
+    <color name="buttonDisabled">#BDBDBD</color>
+</resources>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_dashboard">
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.yourcompany.rollergrilltracker.ui.dashboard.DashboardFragment"
+        android:label="@string/dashboard_title"
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_dashboard_to_sales"
+            app:destination="@id/navigation_sales" />
+        <action
+            android:id="@+id/action_dashboard_to_waste"
+            app:destination="@id/navigation_waste" />
+        <action
+            android:id="@+id/action_dashboard_to_suggestions"
+            app:destination="@id/navigation_suggestions" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_sales"
+        android:name="com.yourcompany.rollergrilltracker.ui.sales.SalesEntryFragment"
+        android:label="@string/sales_entry_title"
+        tools:layout="@layout/fragment_sales_entry" />
+
+    <fragment
+        android:id="@+id/navigation_waste"
+        android:name="com.yourcompany.rollergrilltracker.ui.waste.WasteDisplayFragment"
+        android:label="@string/waste_tracking_title"
+        tools:layout="@layout/fragment_waste_display">
+        <action
+            android:id="@+id/action_waste_to_manual_entry"
+            app:destination="@id/navigation_waste_manual" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_waste_manual"
+        android:name="com.yourcompany.rollergrilltracker.ui.waste.WasteManualEntryFragment"
+        android:label="@string/manual_waste_entry"
+        tools:layout="@layout/fragment_waste_manual_entry" />
+
+    <fragment
+        android:id="@+id/navigation_reports"
+        android:name="com.yourcompany.rollergrilltracker.ui.reports.ReportsFragment"
+        android:label="@string/reports_title"
+        tools:layout="@layout/fragment_reports" />
+
+    <fragment
+        android:id="@+id/navigation_suggestions"
+        android:name="com.yourcompany.rollergrilltracker.ui.suggestions.SuggestionsFragment"
+        android:label="@string/suggestions"
+        tools:layout="@layout/fragment_suggestions" />
+
+    <fragment
+        android:id="@+id/navigation_products"
+        android:name="com.yourcompany.rollergrilltracker.ui.products.ProductsFragment"
+        android:label="@string/products_title"
+        tools:layout="@layout/fragment_products">
+        <action
+            android:id="@+id/action_products_to_product_detail"
+            app:destination="@id/navigation_product_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_product_detail"
+        android:name="com.yourcompany.rollergrilltracker.ui.products.ProductDetailFragment"
+        android:label="@string/edit_product"
+        tools:layout="@layout/fragment_product_detail">
+        <argument
+            android:name="productId"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.yourcompany.rollergrilltracker.ui.settings.SettingsFragment"
+        android:label="@string/settings_title"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/navigation_slot_management"
+        android:name="com.yourcompany.rollergrilltracker.ui.slots.SlotManagementFragment"
+        android:label="@string/slot_management_title"
+        tools:layout="@layout/fragment_slot_management" />
+
+    <fragment
+        android:id="@+id/navigation_inventory"
+        android:name="com.yourcompany.rollergrilltracker.ui.inventory.InventoryFragment"
+        android:label="@string/inventory_title"
+        tools:layout="@layout/fragment_inventory" />
+
+    <fragment
+        android:id="@+id/navigation_order_settings"
+        android:name="com.yourcompany.rollergrilltracker.ui.orders.OrderSettingsFragment"
+        android:label="@string/order_settings"
+        tools:layout="@layout/fragment_order_settings" />
+
+    <fragment
+        android:id="@+id/navigation_order_suggestions"
+        android:name="com.yourcompany.rollergrilltracker.ui.orders.OrderSuggestionsFragment"
+        android:label="@string/suggested_order"
+        tools:layout="@layout/fragment_order_suggestions" />
+</navigation>
