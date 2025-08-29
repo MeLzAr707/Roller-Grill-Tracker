@@ -6,6 +6,7 @@ import com.egamerica.rollergrilltracker.data.repositories.StoreHoursRepository
 import com.egamerica.rollergrilltracker.data.repositories.TimePeriodRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
