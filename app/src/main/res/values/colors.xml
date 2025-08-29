@@ -49,4 +49,10 @@
     <color name="cardBackground">#FFFFFF</color>
     <color name="cardStroke">#E0E0E0</color>
     <color name="buttonDisabled">#BDBDBD</color>
+    
+    <!-- Hold time status colors -->
+    <color name="holdTimeFresh">#4CAF50</color>
+    <color name="holdTimeWarning">#FFC107</color>
+    <color name="holdTimeExpired">#F44336</color>
+    <color name="holdTimeNone">#BDBDBD</color>
 </resources>

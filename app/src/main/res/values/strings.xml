@@ -213,4 +213,61 @@
     <string name="success_data_cleared">All data cleared successfully</string>
     <string name="success_slot_configuration_saved">Slot configuration saved successfully</string>
     <string name="success_order_settings_saved">Order settings saved successfully</string>
+    
+    <!-- Grill Configuration -->
+    <string name="grill_configuration">Grill Configuration</string>
+    <string name="grill_name">Grill Name</string>
+    <string name="grill_number">Grill Number</string>
+    <string name="number_of_slots">Number of Slots</string>
+    <string name="add_grill">Add Grill</string>
+    <string name="edit_grill">Edit Grill</string>
+    <string name="delete_grill">Delete Grill</string>
+    <string name="active_grills">Active Grills</string>
+    <string name="inactive_grills">Inactive Grills</string>
+    <string name="activate_grill">Activate Grill</string>
+    <string name="deactivate_grill">Deactivate Grill</string>
+    <string name="confirm_delete_grill">Are you sure you want to delete this grill?</string>
+    <string name="success_grill_saved">Grill configuration saved successfully</string>
+    <string name="success_grill_deleted">Grill deleted successfully</string>
+    <string name="error_grill_in_use">Cannot delete grill that has products assigned</string>
+    
+    <!-- Store Hours -->
+    <string name="store_hours_settings">Store Hours Settings</string>
+    <string name="store_hours">Store Hours</string>
+    <string name="open_time">Open Time</string>
+    <string name="close_time">Close Time</string>
+    <string name="is_24_hours">24 Hours</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="set_store_hours">Set Store Hours</string>
+    <string name="success_store_hours_saved">Store hours saved successfully</string>
+    <string name="error_invalid_time">Invalid time format</string>
+    <string name="error_close_before_open">Close time cannot be before open time</string>
+    
+    <!-- Product Hold Time -->
+    <string name="product_hold_times">Product Hold Times</string>
+    <string name="hold_time_tracking">Hold Time Tracking</string>
+    <string name="time_remaining">Time Remaining</string>
+    <string name="expired">Expired</string>
+    <string name="fresh">Fresh</string>
+    <string name="warning">Warning</string>
+    <string name="time_added">Time Added</string>
+    <string name="expiration_time">Expiration Time</string>
+    <string name="remove_expired">Remove Expired</string>
+    <string name="start_hold_time">Start Hold Time</string>
+    <string name="stop_hold_time">Stop Hold Time</string>
+    <string name="reset_hold_time">Reset Hold Time</string>
+    <string name="hold_time_status">Hold Time Status</string>
+    <string name="expired_products">Expired Products</string>
+    <string name="hold_time_minutes">%d minutes</string>
+    <string name="hold_time_hours">%d hours %d minutes</string>
+    <string name="success_hold_time_started">Hold time tracking started</string>
+    <string name="success_expired_removed">Expired products removed</string>
+    <string name="no_products_in_slots">No products in slots</string>
+    <string name="no_expired_products">No expired products</string>
 </resources>

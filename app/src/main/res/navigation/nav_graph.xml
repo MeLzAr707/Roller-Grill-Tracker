@@ -79,7 +79,32 @@
         android:id="@+id/navigation_settings"
         android:name="com.egamerica.rollergrilltracker.ui.settings.SettingsFragment"
         android:label="@string/settings_title"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_settings_to_grill_config"
+            app:destination="@id/navigation_grill_config" />
+        <action
+            android:id="@+id/action_settings_to_store_hours"
+            app:destination="@id/navigation_store_hours_settings" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_grill_config"
+        android:name="com.egamerica.rollergrilltracker.ui.settings.GrillConfigFragment"
+        android:label="@string/grill_configuration"
+        tools:layout="@layout/fragment_grill_config" />
+
+    <fragment
+        android:id="@+id/navigation_store_hours_settings"
+        android:name="com.egamerica.rollergrilltracker.ui.settings.StoreHoursSettingsFragment"
+        android:label="@string/store_hours_settings"
+        tools:layout="@layout/fragment_store_hours_settings" />
+
+    <fragment
+        android:id="@+id/navigation_product_hold_time"
+        android:name="com.egamerica.rollergrilltracker.ui.holdtime.ProductHoldTimeFragment"
+        android:label="@string/product_hold_times"
+        tools:layout="@layout/fragment_product_hold_time" />
 
     <fragment
         android:id="@+id/navigation_slot_management"
