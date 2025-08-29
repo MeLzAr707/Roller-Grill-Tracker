@@ -1,4 +1,4 @@
-package com.yourcompany.rollergrilltracker.data.entities
+package com.egamerica.rollergrilltracker.data.entities
 
 import androidx.room.Entity
 import androidx.room.Index

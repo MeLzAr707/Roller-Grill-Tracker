@@ -1,7 +1,7 @@
-package com.yourcompany.rollergrilltracker.data.repositories
+package com.egamerica.rollergrilltracker.data.repositories
 
-import com.yourcompany.rollergrilltracker.data.dao.ProductDao
-import com.yourcompany.rollergrilltracker.data.entities.Product
+import com.egamerica.rollergrilltracker.data.dao.ProductDao
+import com.egamerica.rollergrilltracker.data.entities.Product
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

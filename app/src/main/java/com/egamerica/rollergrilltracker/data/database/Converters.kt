@@ -1,4 +1,4 @@
-package com.yourcompany.rollergrilltracker.data.database
+package com.egamerica.rollergrilltracker.data.database
 
 import androidx.room.TypeConverter
 import java.time.LocalDate

@@ -16,7 +16,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "com.yourcompany.rollergrilltracker.HiltTestRunner"
+        testInstrumentationRunner "com.egamerica.rollergrilltracker.HiltTestRunner"
 
         javaCompileOptions {
             annotationProcessorOptions {
@@ -50,7 +50,7 @@ android {
         dataBinding true
     }
     
-    namespace "com.yourcompany.rollergrilltracker"
+    namespace "com.egamerica.rollergrilltracker"
 }
 
 dependencies {

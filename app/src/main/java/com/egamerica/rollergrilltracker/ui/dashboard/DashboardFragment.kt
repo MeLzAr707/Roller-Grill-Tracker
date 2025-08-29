@@ -1,4 +1,4 @@
-package com.yourcompany.rollergrilltracker.ui.dashboard
+package com.egamerica.rollergrilltracker.ui.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.yourcompany.rollergrilltracker.R
+import com.egamerica.rollergrilltracker.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

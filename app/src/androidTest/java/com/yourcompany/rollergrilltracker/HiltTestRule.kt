@@ -1,4 +1,4 @@
-package com.yourcompany.rollergrilltracker
+package com.egamerica.rollergrilltracker
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.testing.FragmentScenario

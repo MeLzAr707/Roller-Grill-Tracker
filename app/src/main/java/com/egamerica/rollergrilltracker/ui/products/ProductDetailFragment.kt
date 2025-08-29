@@ -1,4 +1,4 @@
-package com.yourcompany.rollergrilltracker.ui.products
+package com.egamerica.rollergrilltracker.ui.products
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,7 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import com.yourcompany.rollergrilltracker.R
+import com.egamerica.rollergrilltracker.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

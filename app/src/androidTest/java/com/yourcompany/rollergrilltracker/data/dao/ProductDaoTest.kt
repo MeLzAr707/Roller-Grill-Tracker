@@ -1,8 +1,8 @@
-package com.yourcompany.rollergrilltracker.data.dao
+package com.egamerica.rollergrilltracker.data.dao
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.yourcompany.rollergrilltracker.data.database.TestDatabase
-import com.yourcompany.rollergrilltracker.data.entities.Product
+import com.egamerica.rollergrilltracker.data.database.TestDatabase
+import com.egamerica.rollergrilltracker.data.entities.Product
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals

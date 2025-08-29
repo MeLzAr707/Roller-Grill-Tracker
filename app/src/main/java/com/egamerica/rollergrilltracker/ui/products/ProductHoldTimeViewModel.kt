@@ -1,14 +1,14 @@
-package com.yourcompany.rollergrilltracker.ui.products
+package com.egamerica.rollergrilltracker.ui.products
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.yourcompany.rollergrilltracker.data.dao.ProductWithHoldTime
-import com.yourcompany.rollergrilltracker.data.dao.SlotWithProduct
-import com.yourcompany.rollergrilltracker.data.entities.ProductHoldTime
-import com.yourcompany.rollergrilltracker.data.repositories.ProductHoldTimeRepository
-import com.yourcompany.rollergrilltracker.data.repositories.SlotRepository
+import com.egamerica.rollergrilltracker.data.dao.ProductWithHoldTime
+import com.egamerica.rollergrilltracker.data.dao.SlotWithProduct
+import com.egamerica.rollergrilltracker.data.entities.ProductHoldTime
+import com.egamerica.rollergrilltracker.data.repositories.ProductHoldTimeRepository
+import com.egamerica.rollergrilltracker.data.repositories.SlotRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first

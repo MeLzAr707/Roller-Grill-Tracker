@@ -1,4 +1,4 @@
-package com.yourcompany.rollergrilltracker.ui
+package com.egamerica.rollergrilltracker.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,7 +7,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.yourcompany.rollergrilltracker.R
+import com.egamerica.rollergrilltracker.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

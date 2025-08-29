@@ -1,4 +1,4 @@
-package com.yourcompany.rollergrilltracker.ui.waste
+package com.egamerica.rollergrilltracker.ui.waste
 
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -12,7 +12,7 @@ import androidx.fragment.app.DialogFragment
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.common.BitMatrix
-import com.yourcompany.rollergrilltracker.R
+import com.egamerica.rollergrilltracker.R
 import java.lang.IllegalArgumentException
 
 class BarcodeDisplayDialogFragment : DialogFragment() {

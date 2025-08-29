@@ -1,4 +1,4 @@
-package com.yourcompany.rollergrilltracker.ui.orders
+package com.egamerica.rollergrilltracker.ui.orders
 
 import android.app.DatePickerDialog
 import android.os.Bundle
@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
-import com.yourcompany.rollergrilltracker.R
+import com.egamerica.rollergrilltracker.R
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Calendar

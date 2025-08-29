@@ -1,13 +1,13 @@
-package com.yourcompany.rollergrilltracker.ui.settings
+package com.egamerica.rollergrilltracker.ui.settings
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.yourcompany.rollergrilltracker.data.entities.StoreHours
-import com.yourcompany.rollergrilltracker.data.entities.TimePeriod
-import com.yourcompany.rollergrilltracker.data.repositories.StoreHoursRepository
-import com.yourcompany.rollergrilltracker.data.repositories.TimePeriodRepository
+import com.egamerica.rollergrilltracker.data.entities.StoreHours
+import com.egamerica.rollergrilltracker.data.entities.TimePeriod
+import com.egamerica.rollergrilltracker.data.repositories.StoreHoursRepository
+import com.egamerica.rollergrilltracker.data.repositories.TimePeriodRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch

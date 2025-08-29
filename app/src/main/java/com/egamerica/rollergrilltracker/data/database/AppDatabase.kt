@@ -1,4 +1,4 @@
-package com.yourcompany.rollergrilltracker.data.database
+package com.egamerica.rollergrilltracker.data.database
 
 import android.content.Context
 import androidx.room.Database
@@ -6,8 +6,8 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.yourcompany.rollergrilltracker.data.dao.*
-import com.yourcompany.rollergrilltracker.data.entities.*
+import com.egamerica.rollergrilltracker.data.dao.*
+import com.egamerica.rollergrilltracker.data.entities.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

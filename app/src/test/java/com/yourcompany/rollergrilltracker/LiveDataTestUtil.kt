@@ -1,4 +1,4 @@
-package com.yourcompany.rollergrilltracker
+package com.egamerica.rollergrilltracker
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer

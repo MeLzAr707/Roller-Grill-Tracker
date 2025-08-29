@@ -1,14 +1,14 @@
-package com.yourcompany.rollergrilltracker.data.database
+package com.egamerica.rollergrilltracker.data.database
 
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import com.yourcompany.rollergrilltracker.data.dao.ProductDao
-import com.yourcompany.rollergrilltracker.data.dao.SalesDetailDao
-import com.yourcompany.rollergrilltracker.data.dao.SalesEntryDao
-import com.yourcompany.rollergrilltracker.data.dao.TimePeriodDao
-import com.yourcompany.rollergrilltracker.data.dao.WasteDetailDao
-import com.yourcompany.rollergrilltracker.data.dao.WasteEntryDao
+import com.egamerica.rollergrilltracker.data.dao.ProductDao
+import com.egamerica.rollergrilltracker.data.dao.SalesDetailDao
+import com.egamerica.rollergrilltracker.data.dao.SalesEntryDao
+import com.egamerica.rollergrilltracker.data.dao.TimePeriodDao
+import com.egamerica.rollergrilltracker.data.dao.WasteDetailDao
+import com.egamerica.rollergrilltracker.data.dao.WasteEntryDao
 import org.junit.After
 import org.junit.Before
 import java.io.IOException

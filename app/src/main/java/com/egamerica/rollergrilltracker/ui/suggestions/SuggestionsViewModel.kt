@@ -1,15 +1,15 @@
-package com.yourcompany.rollergrilltracker.ui.suggestions
+package com.egamerica.rollergrilltracker.ui.suggestions
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.yourcompany.rollergrilltracker.data.entities.Product
-import com.yourcompany.rollergrilltracker.data.entities.Suggestion
-import com.yourcompany.rollergrilltracker.data.entities.TimePeriod
-import com.yourcompany.rollergrilltracker.data.repositories.ProductRepository
-import com.yourcompany.rollergrilltracker.data.repositories.SuggestionRepository
-import com.yourcompany.rollergrilltracker.data.repositories.TimePeriodRepository
+import com.egamerica.rollergrilltracker.data.entities.Product
+import com.egamerica.rollergrilltracker.data.entities.Suggestion
+import com.egamerica.rollergrilltracker.data.entities.TimePeriod
+import com.egamerica.rollergrilltracker.data.repositories.ProductRepository
+import com.egamerica.rollergrilltracker.data.repositories.SuggestionRepository
+import com.egamerica.rollergrilltracker.data.repositories.TimePeriodRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch

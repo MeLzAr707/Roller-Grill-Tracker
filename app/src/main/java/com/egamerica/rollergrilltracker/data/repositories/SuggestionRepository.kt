@@ -1,11 +1,11 @@
-package com.yourcompany.rollergrilltracker.data.repositories
+package com.egamerica.rollergrilltracker.data.repositories
 
 import android.util.Log
 import androidx.room.Transaction
-import com.yourcompany.rollergrilltracker.data.dao.SuggestionDao
-import com.yourcompany.rollergrilltracker.data.dao.SuggestionWithProduct
-import com.yourcompany.rollergrilltracker.data.entities.Suggestion
-import com.yourcompany.rollergrilltracker.util.SuggestionEngine
+import com.egamerica.rollergrilltracker.data.dao.SuggestionDao
+import com.egamerica.rollergrilltracker.data.dao.SuggestionWithProduct
+import com.egamerica.rollergrilltracker.data.entities.Suggestion
+import com.egamerica.rollergrilltracker.util.SuggestionEngine
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.first

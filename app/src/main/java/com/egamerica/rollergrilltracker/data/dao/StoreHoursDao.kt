@@ -1,7 +1,7 @@
-package com.yourcompany.rollergrilltracker.data.dao
+package com.egamerica.rollergrilltracker.data.dao
 
 import androidx.room.*
-import com.yourcompany.rollergrilltracker.data.entities.StoreHours
+import com.egamerica.rollergrilltracker.data.entities.StoreHours
 import kotlinx.coroutines.flow.Flow
 
 @Dao

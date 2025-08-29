@@ -1,10 +1,10 @@
-package com.yourcompany.rollergrilltracker.data.repositories
+package com.egamerica.rollergrilltracker.data.repositories
 
 import android.util.Log
 import androidx.room.Transaction
-import com.yourcompany.rollergrilltracker.data.dao.InventoryDao
-import com.yourcompany.rollergrilltracker.data.dao.InventoryReportItem
-import com.yourcompany.rollergrilltracker.data.entities.InventoryCount
+import com.egamerica.rollergrilltracker.data.dao.InventoryDao
+import com.egamerica.rollergrilltracker.data.dao.InventoryReportItem
+import com.egamerica.rollergrilltracker.data.entities.InventoryCount
 import java.time.LocalDate
 import javax.inject.Inject
 import javax.inject.Singleton

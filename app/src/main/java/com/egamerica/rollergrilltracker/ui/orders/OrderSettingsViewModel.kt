@@ -1,11 +1,11 @@
-package com.yourcompany.rollergrilltracker.ui.orders
+package com.egamerica.rollergrilltracker.ui.orders
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.yourcompany.rollergrilltracker.data.entities.OrderSettings
-import com.yourcompany.rollergrilltracker.data.repositories.OrderSettingsRepository
+import com.egamerica.rollergrilltracker.data.entities.OrderSettings
+import com.egamerica.rollergrilltracker.data.repositories.OrderSettingsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch

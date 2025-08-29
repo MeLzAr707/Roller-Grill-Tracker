@@ -1,8 +1,8 @@
-package com.yourcompany.rollergrilltracker.di
+package com.egamerica.rollergrilltracker.di
 
 import android.content.Context
-import com.yourcompany.rollergrilltracker.data.dao.*
-import com.yourcompany.rollergrilltracker.data.database.AppDatabase
+import com.egamerica.rollergrilltracker.data.dao.*
+import com.egamerica.rollergrilltracker.data.database.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

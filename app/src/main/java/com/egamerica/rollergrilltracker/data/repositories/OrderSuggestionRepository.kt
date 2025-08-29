@@ -1,10 +1,10 @@
-package com.yourcompany.rollergrilltracker.data.repositories
+package com.egamerica.rollergrilltracker.data.repositories
 
 import android.util.Log
 import androidx.room.Transaction
-import com.yourcompany.rollergrilltracker.data.dao.OrderSuggestionDao
-import com.yourcompany.rollergrilltracker.data.dao.OrderSuggestionWithProduct
-import com.yourcompany.rollergrilltracker.data.entities.OrderSuggestion
+import com.egamerica.rollergrilltracker.data.dao.OrderSuggestionDao
+import com.egamerica.rollergrilltracker.data.dao.OrderSuggestionWithProduct
+import com.egamerica.rollergrilltracker.data.entities.OrderSuggestion
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 import javax.inject.Inject

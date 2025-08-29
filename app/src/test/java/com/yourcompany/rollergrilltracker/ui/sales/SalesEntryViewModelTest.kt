@@ -1,14 +1,14 @@
-package com.yourcompany.rollergrilltracker.ui.sales
+package com.egamerica.rollergrilltracker.ui.sales
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.yourcompany.rollergrilltracker.data.entities.Product
-import com.yourcompany.rollergrilltracker.data.entities.SalesDetail
-import com.yourcompany.rollergrilltracker.data.entities.SalesEntry
-import com.yourcompany.rollergrilltracker.data.entities.TimePeriod
-import com.yourcompany.rollergrilltracker.data.repositories.ProductRepository
-import com.yourcompany.rollergrilltracker.data.repositories.SalesRepository
-import com.yourcompany.rollergrilltracker.data.repositories.TimePeriodRepository
-import com.yourcompany.rollergrilltracker.getOrAwaitValue
+import com.egamerica.rollergrilltracker.data.entities.Product
+import com.egamerica.rollergrilltracker.data.entities.SalesDetail
+import com.egamerica.rollergrilltracker.data.entities.SalesEntry
+import com.egamerica.rollergrilltracker.data.entities.TimePeriod
+import com.egamerica.rollergrilltracker.data.repositories.ProductRepository
+import com.egamerica.rollergrilltracker.data.repositories.SalesRepository
+import com.egamerica.rollergrilltracker.data.repositories.TimePeriodRepository
+import com.egamerica.rollergrilltracker.getOrAwaitValue
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf

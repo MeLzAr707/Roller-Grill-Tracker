@@ -1,4 +1,4 @@
-package com.yourcompany.rollergrilltracker.ui.slots
+package com.egamerica.rollergrilltracker.ui.slots
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -17,8 +17,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import com.yourcompany.rollergrilltracker.R
-import com.yourcompany.rollergrilltracker.data.entities.Product
+import com.egamerica.rollergrilltracker.R
+import com.egamerica.rollergrilltracker.data.entities.Product
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

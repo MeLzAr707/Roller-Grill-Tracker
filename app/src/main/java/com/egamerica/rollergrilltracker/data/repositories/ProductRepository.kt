@@ -1,8 +1,8 @@
-package com.yourcompany.rollergrilltracker.data.repositories
+package com.egamerica.rollergrilltracker.data.repositories
 
 import android.util.Log
-import com.yourcompany.rollergrilltracker.data.dao.ProductDao
-import com.yourcompany.rollergrilltracker.data.entities.Product
+import com.egamerica.rollergrilltracker.data.dao.ProductDao
+import com.egamerica.rollergrilltracker.data.entities.Product
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.firstOrNull

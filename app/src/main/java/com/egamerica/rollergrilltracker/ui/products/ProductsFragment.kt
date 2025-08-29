@@ -1,4 +1,4 @@
-package com.yourcompany.rollergrilltracker.ui.products
+package com.egamerica.rollergrilltracker.ui.products
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -20,8 +20,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.yourcompany.rollergrilltracker.R
-import com.yourcompany.rollergrilltracker.data.entities.Product
+import com.egamerica.rollergrilltracker.R
+import com.egamerica.rollergrilltracker.data.entities.Product
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

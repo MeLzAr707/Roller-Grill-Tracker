@@ -1,4 +1,4 @@
-package com.yourcompany.rollergrilltracker
+package com.egamerica.rollergrilltracker
 
 import android.app.Application
 import android.content.Context

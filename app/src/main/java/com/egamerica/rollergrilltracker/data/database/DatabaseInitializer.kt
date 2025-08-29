@@ -1,9 +1,9 @@
-package com.yourcompany.rollergrilltracker.data.database
+package com.egamerica.rollergrilltracker.data.database
 
 import android.util.Log
-import com.yourcompany.rollergrilltracker.data.repositories.GrillConfigRepository
-import com.yourcompany.rollergrilltracker.data.repositories.StoreHoursRepository
-import com.yourcompany.rollergrilltracker.data.repositories.TimePeriodRepository
+import com.egamerica.rollergrilltracker.data.repositories.GrillConfigRepository
+import com.egamerica.rollergrilltracker.data.repositories.StoreHoursRepository
+import com.egamerica.rollergrilltracker.data.repositories.TimePeriodRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

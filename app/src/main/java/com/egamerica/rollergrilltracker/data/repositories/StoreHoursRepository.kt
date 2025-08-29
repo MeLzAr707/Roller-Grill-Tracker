@@ -1,8 +1,8 @@
-package com.yourcompany.rollergrilltracker.data.repositories
+package com.egamerica.rollergrilltracker.data.repositories
 
 import android.util.Log
-import com.yourcompany.rollergrilltracker.data.dao.StoreHoursDao
-import com.yourcompany.rollergrilltracker.data.entities.StoreHours
+import com.egamerica.rollergrilltracker.data.dao.StoreHoursDao
+import com.egamerica.rollergrilltracker.data.entities.StoreHours
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import java.time.DayOfWeek

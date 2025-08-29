@@ -1,4 +1,4 @@
-package com.yourcompany.rollergrilltracker.ui.sales
+package com.egamerica.rollergrilltracker.ui.sales
 
 import android.app.DatePickerDialog
 import android.os.Bundle
@@ -17,9 +17,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
-import com.yourcompany.rollergrilltracker.R
-import com.yourcompany.rollergrilltracker.data.entities.Product
-import com.yourcompany.rollergrilltracker.data.entities.TimePeriod
+import com.egamerica.rollergrilltracker.R
+import com.egamerica.rollergrilltracker.data.entities.Product
+import com.egamerica.rollergrilltracker.data.entities.TimePeriod
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Calendar
