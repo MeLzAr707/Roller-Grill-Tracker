@@ -17,7 +17,8 @@ import java.time.LocalDateTime
         )
     ],
     indices = [
-        Index(value = ["grillNumber", "slotNumber"], unique = true)
+        Index(value = ["grillNumber", "slotNumber"], unique = true),
+        Index(value = ["productId"])
     ]
 )
 data class SlotAssignment(

@@ -90,4 +90,19 @@ object DatabaseModule {
     fun provideOrderSuggestionDao(database: AppDatabase): OrderSuggestionDao {
         return database.orderSuggestionDao()
     }
+
+    @Provides
+    fun provideGrillConfigDao(database: AppDatabase): GrillConfigDao {
+        return database.grillConfigDao()
+    }
+
+    @Provides
+    fun provideStoreHoursDao(database: AppDatabase): StoreHoursDao {
+        return database.storeHoursDao()
+    }
+
+    @Provides
+    fun provideProductHoldTimeDao(database: AppDatabase): ProductHoldTimeDao {
+        return database.productHoldTimeDao()
+    }
 }
