@@ -10,6 +10,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
@@ -57,7 +58,7 @@ class OrderSettingsViewModel @Inject constructor(
                     val orderSettings = settings.first()
                     _orderFrequency.value = orderSettings.orderFrequency
                     _orderDays.value = parseOrderDays(orderSettings.orderDays)
-                    _leadTime.value = orderSettings.leadTime
+                    _leadTime.value = orderSettings.leadTimeDays
                 }
                 
                 calculateNextOrderDates()
@@ -167,7 +168,8 @@ class OrderSettingsViewModel @Inject constructor(
                     id = 1, // Use a fixed ID for settings
                     orderFrequency = frequency,
                     orderDays = formatOrderDays(days),
-                    leadTime = leadTime
+                    leadTimeDays = leadTime,
+                    updatedAt = LocalDateTime.now()
                 )
                 
                 orderSettingsRepository.updateOrderSettings(orderSettings)
