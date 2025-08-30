@@ -134,13 +134,7 @@ class DatabaseCallback(private val scope: CoroutineScope) : RoomDatabase.Callbac
                 // Initialize default order settings
                 val orderSettingsDao = database.orderSettingsDao()
                 orderSettingsDao.insertOrUpdateSettings(
-                    OrderSettings(
-                        id = 1,
-                        orderFrequency = 2,
-                        orderDays = "1,4", // Monday and Thursday
-                        leadTimeDays = 1,
-                        updatedAt = LocalDateTime.now()
-                    )
+                    OrderSettings()
                 )
                 
                 // Initialize default grill config

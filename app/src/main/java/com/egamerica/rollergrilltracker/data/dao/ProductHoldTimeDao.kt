@@ -36,8 +36,7 @@ interface ProductHoldTimeDao {
     suspend fun deactivateHoldTimesForSlot(slotAssignmentId: Int)
     
     @Transaction
-    @RewriteQueriesToDropUnusedColumns
-    @Query("SELECT p.*, pht.* FROM product_hold_times pht JOIN products p ON pht.productId = p.id WHERE pht.isActive = 1 ORDER BY pht.expirationTime")
+    @Query("SELECT * FROM product_hold_times WHERE isActive = 1 ORDER BY expirationTime")
     fun getActiveHoldTimesWithProducts(): Flow<List<ProductWithHoldTime>>
     
     @Query("SELECT COUNT(*) FROM product_hold_times WHERE expirationTime <= :currentTime AND isActive = 1")
@@ -48,10 +47,10 @@ interface ProductHoldTimeDao {
 }
 
 data class ProductWithHoldTime(
-    @Embedded val product: Product,
+    @Embedded val holdTime: ProductHoldTime,
     @Relation(
-        parentColumn = "id",
-        entityColumn = "productId"
+        parentColumn = "productId",
+        entityColumn = "id"
     )
-    val holdTime: ProductHoldTime
+    val product: Product
 )
