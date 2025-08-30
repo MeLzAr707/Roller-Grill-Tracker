@@ -3,7 +3,7 @@ package com.egamerica.rollergrilltracker.data.repositories
 import android.util.Log
 import androidx.room.Transaction
 import com.egamerica.rollergrilltracker.data.dao.SuggestionDao
-import com.egamerica.rollergrilltracker.data.dao.SuggestionWithProduct
+import com.egamerica.rollergrilltracker.data.models.SuggestionWithProduct
 import com.egamerica.rollergrilltracker.data.entities.Suggestion
 import com.egamerica.rollergrilltracker.util.SuggestionEngine
 import kotlinx.coroutines.flow.Flow

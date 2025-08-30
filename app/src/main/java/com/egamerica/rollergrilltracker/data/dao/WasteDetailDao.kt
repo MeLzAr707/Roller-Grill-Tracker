@@ -2,6 +2,8 @@ package com.egamerica.rollergrilltracker.data.dao
 
 import androidx.room.*
 import com.egamerica.rollergrilltracker.data.entities.WasteDetail
+import com.egamerica.rollergrilltracker.data.models.ProductWasteSummary
+import com.egamerica.rollergrilltracker.data.models.ProductWasteByTimePeriod
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -51,18 +53,3 @@ interface WasteDetailDao {
     """)
     suspend fun getProductWasteByTimePeriod(startDate: String, endDate: String): List<ProductWasteByTimePeriod>
 }
-
-data class ProductWasteSummary(
-    val productId: Int,
-    val name: String,
-    val category: String,
-    val totalQuantity: Int
-)
-
-data class ProductWasteByTimePeriod(
-    val productId: Int,
-    val name: String,
-    val category: String,
-    val totalQuantity: Int,
-    val timePeriodId: Int
-)

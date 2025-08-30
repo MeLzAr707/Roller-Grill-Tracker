@@ -1,7 +1,7 @@
 package com.egamerica.rollergrilltracker.data.repositories
 
-import com.egamerica.rollergrilltracker.data.dao.ProductSalesByTimePeriod
-import com.egamerica.rollergrilltracker.data.dao.ProductSalesSummary
+import com.egamerica.rollergrilltracker.data.models.ProductSalesByTimePeriod
+import com.egamerica.rollergrilltracker.data.models.ProductSalesSummary
 import com.egamerica.rollergrilltracker.data.dao.SalesDetailDao
 import com.egamerica.rollergrilltracker.data.dao.SalesEntryDao
 import com.egamerica.rollergrilltracker.data.entities.SalesDetail

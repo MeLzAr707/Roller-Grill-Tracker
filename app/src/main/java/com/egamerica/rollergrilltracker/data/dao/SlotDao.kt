@@ -3,6 +3,7 @@ package com.egamerica.rollergrilltracker.data.dao
 import androidx.room.*
 import com.egamerica.rollergrilltracker.data.entities.Product
 import com.egamerica.rollergrilltracker.data.entities.SlotAssignment
+import com.egamerica.rollergrilltracker.data.models.SlotWithProduct
 import kotlinx.coroutines.flow.Flow
 import java.time.LocalDateTime
 
@@ -64,12 +65,3 @@ interface SlotDao {
     @Query("SELECT * FROM slot_assignments WHERE productAddedAt IS NOT NULL AND datetime(productAddedAt) < datetime('now', '-4 hours')")
     suspend fun getExpiredProductSlots(): List<SlotAssignment>
 }
-
-data class SlotWithProduct(
-    @Embedded val slot: SlotAssignment,
-    @Relation(
-        parentColumn = "productId",
-        entityColumn = "id"
-    )
-    val product: Product?
-)

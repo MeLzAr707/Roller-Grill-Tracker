@@ -2,6 +2,8 @@ package com.egamerica.rollergrilltracker.data.dao
 
 import androidx.room.*
 import com.egamerica.rollergrilltracker.data.entities.SalesDetail
+import com.egamerica.rollergrilltracker.data.models.ProductSalesSummary
+import com.egamerica.rollergrilltracker.data.models.ProductSalesByTimePeriod
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -51,18 +53,3 @@ interface SalesDetailDao {
     """)
     suspend fun getProductSalesByTimePeriod(startDate: String, endDate: String): List<ProductSalesByTimePeriod>
 }
-
-data class ProductSalesSummary(
-    val productId: Int,
-    val name: String,
-    val category: String,
-    val totalQuantity: Int
-)
-
-data class ProductSalesByTimePeriod(
-    val productId: Int,
-    val name: String,
-    val category: String,
-    val totalQuantity: Int,
-    val timePeriodId: Int
-)

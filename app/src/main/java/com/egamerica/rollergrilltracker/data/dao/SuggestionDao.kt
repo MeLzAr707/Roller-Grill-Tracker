@@ -2,6 +2,7 @@ package com.egamerica.rollergrilltracker.data.dao
 
 import androidx.room.*
 import com.egamerica.rollergrilltracker.data.entities.Suggestion
+import com.egamerica.rollergrilltracker.data.models.SuggestionWithProduct
 import kotlinx.coroutines.flow.Flow
 import java.time.LocalDate
 
@@ -37,14 +38,3 @@ interface SuggestionDao {
     @Query("DELETE FROM suggestions WHERE date < :date")
     suspend fun deleteOldSuggestions(date: LocalDate)
 }
-
-data class SuggestionWithProduct(
-    val id: Int,
-    val date: LocalDate,
-    val timePeriodId: Int,
-    val productId: Int,
-    val suggestedQuantity: Int,
-    val confidenceScore: Float,
-    val name: String,
-    val category: String
-)
