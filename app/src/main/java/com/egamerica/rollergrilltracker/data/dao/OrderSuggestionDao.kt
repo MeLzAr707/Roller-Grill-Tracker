@@ -11,7 +11,8 @@ interface OrderSuggestionDao {
     suspend fun getOrderSuggestionsForDate(date: LocalDate): List<OrderSuggestion>
     
     @Query("""
-        SELECT os.*, p.name as productName, p.category, p.unitsPerCase
+        SELECT os.id, os.date, os.productId, os.suggestedCases, os.suggestedUnits, os.calculatedAt,
+               p.name as productName, p.category, p.unitsPerCase
         FROM order_suggestions os
         INNER JOIN products p ON os.productId = p.id
         WHERE os.date = :date
