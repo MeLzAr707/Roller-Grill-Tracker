@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import java.time.LocalDateTime
 
 @Entity(tableName = "order_settings")
-data class OrderSettings(
+data class OrderSettings @JvmOverloads constructor(
     @PrimaryKey
     val id: Int = 1, // Single row for app-wide settings
     val orderFrequency: Int = 2, // Default: 2 orders per week
