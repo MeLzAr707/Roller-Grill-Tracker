@@ -23,8 +23,8 @@ interface SalesEntryDao {
     suspend fun insert(salesEntry: SalesEntry): Long
     
     @Update
-    suspend fun update(salesEntry: SalesEntry)
+    suspend fun update(salesEntry: SalesEntry): Int
     
     @Delete
-    suspend fun delete(salesEntry: SalesEntry)
+    suspend fun delete(salesEntry: SalesEntry): Int
 }

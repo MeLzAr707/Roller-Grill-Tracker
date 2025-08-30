@@ -20,10 +20,10 @@ interface OrderSuggestionDao {
     suspend fun getOrderSuggestionsWithProductInfo(date: LocalDate): List<OrderSuggestionWithProduct>
     
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertOrUpdateSuggestion(suggestion: OrderSuggestion)
+    suspend fun insertOrUpdateSuggestion(suggestion: OrderSuggestion): Long
     
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertOrUpdateSuggestions(suggestions: List<OrderSuggestion>)
+    suspend fun insertOrUpdateSuggestions(suggestions: List<OrderSuggestion>): List<Long>
     
     @Query("DELETE FROM order_suggestions WHERE date = :date")
     suspend fun deleteOrderSuggestionsForDate(date: LocalDate)

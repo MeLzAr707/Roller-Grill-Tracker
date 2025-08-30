@@ -40,13 +40,13 @@ interface TimePeriodDao {
     suspend fun insert(timePeriod: TimePeriod): Long
     
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(timePeriods: List<TimePeriod>)
+    suspend fun insertAll(timePeriods: List<TimePeriod>): List<Long>
     
     @Update
-    suspend fun update(timePeriod: TimePeriod)
+    suspend fun update(timePeriod: TimePeriod): Int
     
     @Delete
-    suspend fun delete(timePeriod: TimePeriod)
+    suspend fun delete(timePeriod: TimePeriod): Int
     
     @Query("UPDATE time_periods SET isActive = :isActive WHERE id = :id")
     suspend fun updateActiveStatus(id: Int, isActive: Boolean)

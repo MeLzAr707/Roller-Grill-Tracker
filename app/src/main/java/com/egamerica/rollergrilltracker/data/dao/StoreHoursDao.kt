@@ -16,13 +16,13 @@ interface StoreHoursDao {
     suspend fun insert(storeHours: StoreHours): Long
     
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(storeHours: List<StoreHours>)
+    suspend fun insertAll(storeHours: List<StoreHours>): List<Long>
     
     @Update
-    suspend fun update(storeHours: StoreHours)
+    suspend fun update(storeHours: StoreHours): Int
     
     @Delete
-    suspend fun delete(storeHours: StoreHours)
+    suspend fun delete(storeHours: StoreHours): Int
     
     @Query("UPDATE store_hours SET is24Hours = :is24Hours WHERE dayOfWeek = :dayOfWeek")
     suspend fun update24HourStatus(dayOfWeek: Int, is24Hours: Boolean)

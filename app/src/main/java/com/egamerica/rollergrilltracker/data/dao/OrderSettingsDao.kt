@@ -10,7 +10,7 @@ interface OrderSettingsDao {
     suspend fun getOrderSettings(): OrderSettings?
     
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertOrUpdateSettings(settings: OrderSettings)
+    suspend fun insertOrUpdateSettings(settings: OrderSettings): Long
     
     @Query("UPDATE order_settings SET orderFrequency = :frequency, orderDays = :days, leadTimeDays = :leadTime, updatedAt = :timestamp WHERE id = 1")
     suspend fun updateOrderSettings(frequency: Int, days: String, leadTime: Int, timestamp: LocalDateTime)

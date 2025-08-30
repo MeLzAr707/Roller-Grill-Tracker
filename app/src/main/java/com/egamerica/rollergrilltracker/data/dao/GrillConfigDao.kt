@@ -22,13 +22,13 @@ interface GrillConfigDao {
     suspend fun insert(grillConfig: GrillConfig): Long
     
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(grillConfigs: List<GrillConfig>)
+    suspend fun insertAll(grillConfigs: List<GrillConfig>): List<Long>
     
     @Update
-    suspend fun update(grillConfig: GrillConfig)
+    suspend fun update(grillConfig: GrillConfig): Int
     
     @Delete
-    suspend fun delete(grillConfig: GrillConfig)
+    suspend fun delete(grillConfig: GrillConfig): Int
     
     @Query("UPDATE grill_config SET isActive = :isActive WHERE grillNumber = :grillNumber")
     suspend fun updateActiveStatus(grillNumber: Int, isActive: Boolean)

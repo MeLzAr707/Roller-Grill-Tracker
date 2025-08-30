@@ -9,7 +9,7 @@ import java.time.LocalDateTime
 @Dao
 interface SlotDao {
     @Query("SELECT * FROM slot_assignments ORDER BY grillNumber, slotNumber")
-    fun getAllSlots(): List<SlotAssignment>
+    suspend fun getAllSlots(): List<SlotAssignment>
     
     @Query("SELECT * FROM slot_assignments ORDER BY grillNumber, slotNumber")
     fun getAllSlotAssignments(): Flow<List<SlotAssignment>>
@@ -41,13 +41,13 @@ interface SlotDao {
     suspend fun insert(slot: SlotAssignment): Long
     
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(slots: List<SlotAssignment>)
+    suspend fun insertAll(slots: List<SlotAssignment>): List<Long>
     
     @Update
-    suspend fun update(slot: SlotAssignment)
+    suspend fun update(slot: SlotAssignment): Int
     
     @Delete
-    suspend fun delete(slot: SlotAssignment)
+    suspend fun delete(slot: SlotAssignment): Int
     
     @Query("DELETE FROM slot_assignments WHERE grillNumber = :grillNumber")
     suspend fun deleteSlotsByGrill(grillNumber: Int)

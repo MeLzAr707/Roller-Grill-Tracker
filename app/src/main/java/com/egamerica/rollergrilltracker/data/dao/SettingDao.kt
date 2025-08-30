@@ -16,10 +16,10 @@ interface SettingDao {
     suspend fun insert(setting: Setting): Long
     
     @Update
-    suspend fun update(setting: Setting)
+    suspend fun update(setting: Setting): Int
     
     @Delete
-    suspend fun delete(setting: Setting)
+    suspend fun delete(setting: Setting): Int
     
     @Query("DELETE FROM settings WHERE key = :key")
     suspend fun deleteByKey(key: String)

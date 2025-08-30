@@ -16,13 +16,13 @@ interface WasteDetailDao {
     suspend fun insert(wasteDetail: WasteDetail): Long
     
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(wasteDetails: List<WasteDetail>)
+    suspend fun insertAll(wasteDetails: List<WasteDetail>): List<Long>
     
     @Update
-    suspend fun update(wasteDetail: WasteDetail)
+    suspend fun update(wasteDetail: WasteDetail): Int
     
     @Delete
-    suspend fun delete(wasteDetail: WasteDetail)
+    suspend fun delete(wasteDetail: WasteDetail): Int
     
     @Query("DELETE FROM waste_details WHERE wasteEntryId = :wasteEntryId")
     suspend fun deleteByWasteEntryId(wasteEntryId: Int)

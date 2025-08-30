@@ -28,13 +28,13 @@ interface ProductDao {
     suspend fun insert(product: Product): Long
     
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(products: List<Product>)
+    suspend fun insertAll(products: List<Product>): List<Long>
     
     @Update
-    suspend fun update(product: Product)
+    suspend fun update(product: Product): Int
     
     @Delete
-    suspend fun delete(product: Product)
+    suspend fun delete(product: Product): Int
     
     @Query("UPDATE products SET active = :active, updatedAt = :timestamp WHERE id = :id")
     suspend fun updateActiveStatus(id: Int, active: Boolean, timestamp: String)
