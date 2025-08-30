@@ -36,7 +36,15 @@ interface ProductHoldTimeDao {
     suspend fun deactivateHoldTimesForSlot(slotAssignmentId: Int)
     
     @Transaction
-    @Query("SELECT p.*, pht.* FROM product_hold_times pht JOIN products p ON pht.productId = p.id WHERE pht.isActive = 1 ORDER BY pht.expirationTime")
+    @Query("""
+        SELECT pht.id, pht.productId, pht.slotAssignmentId, pht.grillNumber, pht.slotNumber, 
+               pht.startTime, pht.expirationTime, pht.isActive, pht.wasDiscarded, pht.discardedAt, pht.discardReason,
+               p.name as productName, p.category as productCategory
+        FROM product_hold_times pht 
+        JOIN products p ON pht.productId = p.id 
+        WHERE pht.isActive = 1 
+        ORDER BY pht.expirationTime
+    """)
     fun getActiveHoldTimesWithProducts(): Flow<List<ProductWithHoldTime>>
     
     @Query("SELECT COUNT(*) FROM product_hold_times WHERE expirationTime <= :currentTime AND isActive = 1")
@@ -47,10 +55,17 @@ interface ProductHoldTimeDao {
 }
 
 data class ProductWithHoldTime(
-    @Embedded val product: Product,
-    @Relation(
-        parentColumn = "id",
-        entityColumn = "productId"
-    )
-    val holdTime: ProductHoldTime
+    val id: Int,
+    val productId: Int,
+    val slotAssignmentId: Int,
+    val grillNumber: Int,
+    val slotNumber: Int,
+    val startTime: LocalDateTime,
+    val expirationTime: LocalDateTime,
+    val isActive: Boolean,
+    val wasDiscarded: Boolean,
+    val discardedAt: LocalDateTime?,
+    val discardReason: String?,
+    val productName: String,
+    val productCategory: String
 )

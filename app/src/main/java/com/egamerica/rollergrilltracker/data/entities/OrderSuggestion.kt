@@ -17,7 +17,10 @@ import java.time.LocalDateTime
             onDelete = ForeignKey.CASCADE
         )
     ],
-    indices = [Index(value = ["date", "productId"], unique = true)]
+    indices = [
+        Index(value = ["date", "productId"], unique = true),
+        Index(value = ["productId"])
+    ]
 )
 data class OrderSuggestion(
     @PrimaryKey(autoGenerate = true)

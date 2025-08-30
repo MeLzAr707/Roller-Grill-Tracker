@@ -3,6 +3,7 @@ package com.egamerica.rollergrilltracker.data.dao
 import androidx.room.*
 import com.egamerica.rollergrilltracker.data.entities.WasteDetail
 import kotlinx.coroutines.flow.Flow
+import java.time.LocalDate
 
 @Dao
 interface WasteDetailDao {
@@ -37,7 +38,7 @@ interface WasteDetailDao {
         GROUP BY p.id
         ORDER BY totalQuantity DESC
     """)
-    suspend fun getProductWasteSummary(startDate: String, endDate: String): List<ProductWasteSummary>
+    suspend fun getProductWasteSummary(startDate: LocalDate, endDate: LocalDate): List<ProductWasteSummary>
     
     @Transaction
     @Query("""
@@ -49,7 +50,7 @@ interface WasteDetailDao {
         GROUP BY p.id, we.timePeriodId
         ORDER BY we.timePeriodId, totalQuantity DESC
     """)
-    suspend fun getProductWasteByTimePeriod(startDate: String, endDate: String): List<ProductWasteByTimePeriod>
+    suspend fun getProductWasteByTimePeriod(startDate: LocalDate, endDate: LocalDate): List<ProductWasteByTimePeriod>
 }
 
 data class ProductWasteSummary(

@@ -11,7 +11,7 @@ interface SuggestionDao {
     fun getSuggestionsByDateAndTimePeriod(date: LocalDate, timePeriodId: Int): Flow<List<Suggestion>>
     
     @Query("""
-        SELECT s.*, p.name, p.category
+        SELECT s.id, s.date, s.timePeriodId, s.productId, s.suggestedQuantity, s.confidenceScore, p.name, p.category
         FROM suggestions s
         INNER JOIN products p ON s.productId = p.id
         WHERE s.date = :date AND s.timePeriodId = :timePeriodId
