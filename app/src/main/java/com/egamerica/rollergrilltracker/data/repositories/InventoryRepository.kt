@@ -3,7 +3,7 @@ package com.egamerica.rollergrilltracker.data.repositories
 import android.util.Log
 import androidx.room.Transaction
 import com.egamerica.rollergrilltracker.data.dao.InventoryDao
-import com.egamerica.rollergrilltracker.data.dao.InventoryReportItem
+import com.egamerica.rollergrilltracker.data.models.InventoryReportItem
 import com.egamerica.rollergrilltracker.data.entities.InventoryCount
 import java.time.LocalDate
 import javax.inject.Inject

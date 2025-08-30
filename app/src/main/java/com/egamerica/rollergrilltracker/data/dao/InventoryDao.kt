@@ -2,6 +2,7 @@ package com.egamerica.rollergrilltracker.data.dao
 
 import androidx.room.*
 import com.egamerica.rollergrilltracker.data.entities.InventoryCount
+import com.egamerica.rollergrilltracker.data.models.InventoryReportItem
 import kotlinx.coroutines.flow.Flow
 import java.time.LocalDate
 
@@ -32,10 +33,3 @@ interface InventoryDao {
     """)
     suspend fun getInventoryReportForDateRange(startDate: LocalDate, endDate: LocalDate): List<InventoryReportItem>
 }
-
-data class InventoryReportItem(
-    val productId: Int,
-    val productName: String,
-    val totalUsed: Int,
-    val averageUsed: Float
-)

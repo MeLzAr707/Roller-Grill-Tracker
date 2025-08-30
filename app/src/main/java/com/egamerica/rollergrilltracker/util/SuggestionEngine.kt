@@ -1,7 +1,7 @@
 package com.egamerica.rollergrilltracker.util
 
-import com.egamerica.rollergrilltracker.data.dao.ProductSalesByTimePeriod
-import com.egamerica.rollergrilltracker.data.dao.ProductWasteByTimePeriod
+import com.egamerica.rollergrilltracker.data.models.ProductSalesByTimePeriod
+import com.egamerica.rollergrilltracker.data.models.ProductWasteByTimePeriod
 import com.egamerica.rollergrilltracker.data.entities.Product
 import com.egamerica.rollergrilltracker.data.entities.Suggestion
 import java.time.DayOfWeek

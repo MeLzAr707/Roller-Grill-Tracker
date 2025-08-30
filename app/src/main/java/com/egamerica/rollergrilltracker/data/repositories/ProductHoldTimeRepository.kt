@@ -2,7 +2,7 @@ package com.egamerica.rollergrilltracker.data.repositories
 
 import android.util.Log
 import com.egamerica.rollergrilltracker.data.dao.ProductHoldTimeDao
-import com.egamerica.rollergrilltracker.data.dao.ProductWithHoldTime
+import com.egamerica.rollergrilltracker.data.models.ProductWithHoldTime
 import com.egamerica.rollergrilltracker.data.entities.ProductHoldTime
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch

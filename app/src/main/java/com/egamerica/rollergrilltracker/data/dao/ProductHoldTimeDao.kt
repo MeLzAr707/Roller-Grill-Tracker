@@ -3,6 +3,7 @@ package com.egamerica.rollergrilltracker.data.dao
 import androidx.room.*
 import com.egamerica.rollergrilltracker.data.entities.Product
 import com.egamerica.rollergrilltracker.data.entities.ProductHoldTime
+import com.egamerica.rollergrilltracker.data.models.ProductWithHoldTime
 import kotlinx.coroutines.flow.Flow
 import java.time.LocalDateTime
 
@@ -45,12 +46,3 @@ interface ProductHoldTimeDao {
     @Query("SELECT * FROM product_hold_times WHERE wasDiscarded = 1 AND discardedAt BETWEEN :startDate AND :endDate")
     suspend fun getDiscardedProductsInDateRange(startDate: LocalDateTime, endDate: LocalDateTime): List<ProductHoldTime>
 }
-
-data class ProductWithHoldTime(
-    @Embedded val product: Product,
-    @Relation(
-        parentColumn = "id",
-        entityColumn = "productId"
-    )
-    val holdTime: ProductHoldTime
-)

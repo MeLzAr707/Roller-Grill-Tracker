@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.egamerica.rollergrilltracker.data.dao.ProductWithHoldTime
+import com.egamerica.rollergrilltracker.data.models.ProductWithHoldTime
 import com.egamerica.rollergrilltracker.data.entities.ProductHoldTime
 import com.egamerica.rollergrilltracker.data.repositories.ProductHoldTimeRepository
 import com.egamerica.rollergrilltracker.data.repositories.ProductRepository
