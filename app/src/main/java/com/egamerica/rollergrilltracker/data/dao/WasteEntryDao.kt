@@ -23,8 +23,8 @@ interface WasteEntryDao {
     suspend fun insert(wasteEntry: WasteEntry): Long
     
     @Update
-    suspend fun update(wasteEntry: WasteEntry)
+    suspend fun update(wasteEntry: WasteEntry): Int
     
     @Delete
-    suspend fun delete(wasteEntry: WasteEntry)
+    suspend fun delete(wasteEntry: WasteEntry): Int
 }

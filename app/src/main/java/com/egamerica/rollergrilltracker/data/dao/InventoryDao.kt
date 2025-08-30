@@ -17,7 +17,7 @@ interface InventoryDao {
     suspend fun insert(inventoryCount: InventoryCount): Long
     
     @Update
-    suspend fun update(inventoryCount: InventoryCount)
+    suspend fun update(inventoryCount: InventoryCount): Int
     
     @Transaction
     @Query("""

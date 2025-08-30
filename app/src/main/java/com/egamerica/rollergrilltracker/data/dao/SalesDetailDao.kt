@@ -16,13 +16,13 @@ interface SalesDetailDao {
     suspend fun insert(salesDetail: SalesDetail): Long
     
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(salesDetails: List<SalesDetail>)
+    suspend fun insertAll(salesDetails: List<SalesDetail>): List<Long>
     
     @Update
-    suspend fun update(salesDetail: SalesDetail)
+    suspend fun update(salesDetail: SalesDetail): Int
     
     @Delete
-    suspend fun delete(salesDetail: SalesDetail)
+    suspend fun delete(salesDetail: SalesDetail): Int
     
     @Query("DELETE FROM sales_details WHERE salesEntryId = :salesEntryId")
     suspend fun deleteBySalesEntryId(salesEntryId: Int)

@@ -27,7 +27,7 @@ interface ProductHoldTimeDao {
     suspend fun insert(productHoldTime: ProductHoldTime): Long
     
     @Update
-    suspend fun update(productHoldTime: ProductHoldTime)
+    suspend fun update(productHoldTime: ProductHoldTime): Int
     
     @Query("UPDATE product_hold_times SET isActive = 0, wasDiscarded = 1, discardedAt = :discardedAt, discardReason = :discardReason WHERE id = :id")
     suspend fun markAsDiscarded(id: Int, discardedAt: LocalDateTime, discardReason: String)

@@ -23,13 +23,13 @@ interface SuggestionDao {
     suspend fun insert(suggestion: Suggestion): Long
     
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(suggestions: List<Suggestion>)
+    suspend fun insertAll(suggestions: List<Suggestion>): List<Long>
     
     @Update
-    suspend fun update(suggestion: Suggestion)
+    suspend fun update(suggestion: Suggestion): Int
     
     @Delete
-    suspend fun delete(suggestion: Suggestion)
+    suspend fun delete(suggestion: Suggestion): Int
     
     @Query("DELETE FROM suggestions WHERE date = :date AND timePeriodId = :timePeriodId")
     suspend fun deleteByDateAndTimePeriod(date: LocalDate, timePeriodId: Int)
