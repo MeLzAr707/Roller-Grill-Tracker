@@ -36,6 +36,7 @@ interface ProductHoldTimeDao {
     suspend fun deactivateHoldTimesForSlot(slotAssignmentId: Int)
     
     @Transaction
+    @RewriteQueriesToDropUnusedColumns
     @Query("SELECT p.*, pht.* FROM product_hold_times pht JOIN products p ON pht.productId = p.id WHERE pht.isActive = 1 ORDER BY pht.expirationTime")
     fun getActiveHoldTimesWithProducts(): Flow<List<ProductWithHoldTime>>
     
