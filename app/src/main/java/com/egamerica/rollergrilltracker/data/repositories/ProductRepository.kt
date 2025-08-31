@@ -66,6 +66,14 @@ class ProductRepository @Inject constructor(
             }
     }
     
+    fun getProductsByIds(ids: List<Int>): Flow<List<Product>> {
+        return productDao.getProductsByIds(ids)
+            .catch { e ->
+                Log.e(TAG, "Error getting products by IDs: ${e.message}", e)
+                throw RepositoryException("Failed to get products by IDs", e)
+            }
+    }
+    
     suspend fun insertProduct(product: Product): Long {
         return try {
             productDao.insert(product)

@@ -4,6 +4,7 @@ import androidx.room.*
 import com.egamerica.rollergrilltracker.data.entities.Suggestion
 import kotlinx.coroutines.flow.Flow
 import java.time.LocalDate
+import java.time.LocalDateTime
 
 @Dao
 interface SuggestionDao {
@@ -45,6 +46,7 @@ data class SuggestionWithProduct(
     val productId: Int,
     val suggestedQuantity: Int,
     val confidenceScore: Float,
+    val createdAt: LocalDateTime,
     val name: String,
     val category: String
 )

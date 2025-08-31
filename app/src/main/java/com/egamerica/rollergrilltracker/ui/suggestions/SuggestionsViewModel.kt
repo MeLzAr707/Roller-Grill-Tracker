@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.egamerica.rollergrilltracker.data.dao.SuggestionWithProduct
 import com.egamerica.rollergrilltracker.data.entities.Product
 import com.egamerica.rollergrilltracker.data.entities.Suggestion
 import com.egamerica.rollergrilltracker.data.entities.TimePeriod
@@ -14,6 +15,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.ZoneId
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
@@ -96,32 +99,14 @@ class SuggestionsViewModel @Inject constructor(
                 val date = _selectedDate.value ?: return@launch
                 val timePeriod = _selectedTimePeriod.value ?: return@launch
                 
-                val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
-                val formattedDate = dateFormat.format(date)
+                // Convert Date to LocalDate
+                val localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
                 
-                val suggestions = suggestionRepository.getSuggestionsByDateAndTimePeriod(
-                    formattedDate, timePeriod.id
+                val suggestionsWithProducts = suggestionRepository.getSuggestionsWithProductInfo(
+                    localDate, timePeriod.id
                 ).first()
                 
-                val products = productRepository.getAllProducts().first()
-                val productMap = products.associateBy { it.id }
-                
-                val suggestionsWithProducts = suggestions.map { suggestion ->
-                    val product = productMap[suggestion.productId]
-                    SuggestionWithProduct(
-                        suggestion = suggestion,
-                        product = product ?: Product(
-                            id = suggestion.productId,
-                            name = "Unknown Product",
-                            barcode = "",
-                            category = "",
-                            isActive = true,
-                            inStock = true
-                        )
-                    )
-                }.sortedByDescending { it.suggestion.confidenceScore }
-                
-                _suggestions.value = suggestionsWithProducts
+                _suggestions.value = suggestionsWithProducts.sortedByDescending { it.confidenceScore }
             } catch (e: Exception) {
                 // Handle error
             } finally {
@@ -129,9 +114,4 @@ class SuggestionsViewModel @Inject constructor(
             }
         }
     }
-
-    data class SuggestionWithProduct(
-        val suggestion: Suggestion,
-        val product: Product
-    )
 }
