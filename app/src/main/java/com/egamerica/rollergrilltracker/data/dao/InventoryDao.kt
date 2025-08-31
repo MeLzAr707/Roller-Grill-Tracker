@@ -19,6 +19,9 @@ interface InventoryDao {
     @Update
     suspend fun update(inventoryCount: InventoryCount)
     
+    @Query("DELETE FROM inventory_counts WHERE date = :date")
+    suspend fun deleteByDate(date: LocalDate)
+    
     @Transaction
     @Query("""
         SELECT ic.productId, p.name as productName, 

@@ -113,4 +113,23 @@ class WasteRepository @Inject constructor(
             throw RepositoryException("Failed to get product waste by time period", e)
         }
     }
+    
+    // Missing methods that are called from ViewModels
+    suspend fun insertWasteEntry(wasteEntry: WasteEntry): Long {
+        return try {
+            wasteEntryDao.insert(wasteEntry)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error inserting waste entry: ${e.message}", e)
+            throw RepositoryException("Failed to insert waste entry", e)
+        }
+    }
+
+    suspend fun insertWasteDetails(wasteDetails: List<WasteDetail>) {
+        try {
+            wasteDetailDao.insertAll(wasteDetails)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error inserting waste details: ${e.message}", e)
+            throw RepositoryException("Failed to insert waste details", e)
+        }
+    }
 }

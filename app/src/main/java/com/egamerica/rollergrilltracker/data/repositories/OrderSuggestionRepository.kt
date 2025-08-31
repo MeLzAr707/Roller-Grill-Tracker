@@ -5,7 +5,10 @@ import androidx.room.Transaction
 import com.egamerica.rollergrilltracker.data.dao.OrderSuggestionDao
 import com.egamerica.rollergrilltracker.data.dao.OrderSuggestionWithProduct
 import com.egamerica.rollergrilltracker.data.entities.OrderSuggestion
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -122,6 +125,28 @@ class OrderSuggestionRepository @Inject constructor(
             "sausage" -> 8f
             "tamale" -> 6f
             else -> 5f
+        }
+    }
+    
+    // Missing methods that are called from ViewModels
+    fun getOrderSuggestionsByDate(dateString: String): Flow<List<OrderSuggestionWithProduct>> {
+        return flow {
+            try {
+                val date = LocalDate.parse(dateString, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+                emit(orderSuggestionDao.getOrderSuggestionsWithProductInfo(date))
+            } catch (e: Exception) {
+                Log.e(TAG, "Error getting order suggestions by date: ${e.message}", e)
+                throw RepositoryException("Failed to get order suggestions by date", e)
+            }
+        }
+    }
+
+    suspend fun insertOrderSuggestions(suggestions: List<OrderSuggestion>) {
+        try {
+            orderSuggestionDao.insertOrUpdateSuggestions(suggestions)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error inserting order suggestions: ${e.message}", e)
+            throw RepositoryException("Failed to insert order suggestions", e)
         }
     }
 }

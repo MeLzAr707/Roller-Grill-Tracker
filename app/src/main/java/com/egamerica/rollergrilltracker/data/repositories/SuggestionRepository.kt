@@ -96,4 +96,13 @@ class SuggestionRepository @Inject constructor(
             throw RepositoryException("Failed to delete old suggestions", e)
         }
     }
+    
+    // Missing method that is called from ViewModels
+    fun getTopSuggestions(limit: Int): Flow<List<SuggestionWithProduct>> {
+        return suggestionDao.getTopSuggestions(limit)
+            .catch { e ->
+                Log.e(TAG, "Error getting top suggestions: ${e.message}", e)
+                throw RepositoryException("Failed to get top suggestions", e)
+            }
+    }
 }
