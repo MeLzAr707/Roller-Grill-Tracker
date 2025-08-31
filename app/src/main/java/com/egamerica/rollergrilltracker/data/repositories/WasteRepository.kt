@@ -2,12 +2,12 @@ package com.egamerica.rollergrilltracker.data.repositories
 
 import android.util.Log
 import androidx.room.Transaction
-import com.egamerica.rollergrilltracker.data.dao.ProductWasteByTimePeriod
-import com.egamerica.rollergrilltracker.data.dao.ProductWasteSummary
 import com.egamerica.rollergrilltracker.data.dao.WasteDetailDao
 import com.egamerica.rollergrilltracker.data.dao.WasteEntryDao
 import com.egamerica.rollergrilltracker.data.entities.WasteDetail
 import com.egamerica.rollergrilltracker.data.entities.WasteEntry
+import com.egamerica.rollergrilltracker.data.models.ProductWasteByTimePeriod
+import com.egamerica.rollergrilltracker.data.models.ProductWasteSummary
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import java.time.LocalDate

@@ -1,9 +1,9 @@
 package com.egamerica.rollergrilltracker.util
 
-import com.egamerica.rollergrilltracker.data.dao.ProductSalesByTimePeriod
-import com.egamerica.rollergrilltracker.data.dao.ProductWasteByTimePeriod
 import com.egamerica.rollergrilltracker.data.entities.Product
 import com.egamerica.rollergrilltracker.data.entities.Suggestion
+import com.egamerica.rollergrilltracker.data.models.ProductSalesByTimePeriod
+import com.egamerica.rollergrilltracker.data.models.ProductWasteByTimePeriod
 import java.time.DayOfWeek
 import java.time.LocalDate
 import kotlin.math.max

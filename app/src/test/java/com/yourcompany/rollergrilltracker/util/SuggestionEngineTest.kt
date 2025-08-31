@@ -1,9 +1,9 @@
 package com.egamerica.rollergrilltracker.util
 
 import com.egamerica.rollergrilltracker.util.SuggestionEngine
-import com.egamerica.rollergrilltracker.data.dao.ProductSalesByTimePeriod
-import com.egamerica.rollergrilltracker.data.dao.ProductWasteByTimePeriod
 import com.egamerica.rollergrilltracker.data.entities.Product
+import com.egamerica.rollergrilltracker.data.models.ProductSalesByTimePeriod
+import com.egamerica.rollergrilltracker.data.models.ProductWasteByTimePeriod
 import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test

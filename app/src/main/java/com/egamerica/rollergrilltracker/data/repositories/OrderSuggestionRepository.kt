@@ -3,8 +3,8 @@ package com.egamerica.rollergrilltracker.data.repositories
 import android.util.Log
 import androidx.room.Transaction
 import com.egamerica.rollergrilltracker.data.dao.OrderSuggestionDao
-import com.egamerica.rollergrilltracker.data.dao.OrderSuggestionWithProduct
 import com.egamerica.rollergrilltracker.data.entities.OrderSuggestion
+import com.egamerica.rollergrilltracker.data.models.OrderSuggestionWithProduct
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 import javax.inject.Inject

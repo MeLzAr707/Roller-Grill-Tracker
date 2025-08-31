@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.egamerica.rollergrilltracker.data.dao.SlotWithProduct
 import com.egamerica.rollergrilltracker.data.entities.GrillConfig
+import com.egamerica.rollergrilltracker.data.models.SlotWithProduct
 import com.egamerica.rollergrilltracker.data.repositories.GrillConfigRepository
 import com.egamerica.rollergrilltracker.data.repositories.SlotRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
