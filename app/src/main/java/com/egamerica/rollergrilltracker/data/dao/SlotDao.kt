@@ -9,7 +9,7 @@ import java.time.LocalDateTime
 @Dao
 interface SlotDao {
     @Query("SELECT * FROM slot_assignments ORDER BY grillNumber, slotNumber")
-    fun getAllSlots(): List<SlotAssignment>
+    suspend fun getAllSlots(): List<SlotAssignment>
     
     @Query("SELECT * FROM slot_assignments ORDER BY grillNumber, slotNumber")
     fun getAllSlotAssignments(): Flow<List<SlotAssignment>>
