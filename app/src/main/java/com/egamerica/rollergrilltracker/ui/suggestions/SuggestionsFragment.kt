@@ -164,9 +164,9 @@ class SuggestionsFragment : Fragment() {
     class SuggestionAdapter : 
             RecyclerView.Adapter<SuggestionAdapter.SuggestionViewHolder>() {
         
-        private var items: List<SuggestionsViewModel.SuggestionWithProduct> = emptyList()
+        private var items: List<com.egamerica.rollergrilltracker.data.dao.SuggestionWithProduct> = emptyList()
         
-        fun submitList(newItems: List<SuggestionsViewModel.SuggestionWithProduct>) {
+        fun submitList(newItems: List<com.egamerica.rollergrilltracker.data.dao.SuggestionWithProduct>) {
             items = newItems
             notifyDataSetChanged()
         }
@@ -189,11 +189,11 @@ class SuggestionsFragment : Fragment() {
             private val quantityTextView: TextView = itemView.findViewById(R.id.text_quantity)
             private val confidenceTextView: TextView = itemView.findViewById(R.id.text_confidence)
             
-            fun bind(item: SuggestionsViewModel.SuggestionWithProduct) {
-                productNameTextView.text = item.product.name
-                quantityTextView.text = item.suggestion.suggestedQuantity.toString()
+            fun bind(item: com.egamerica.rollergrilltracker.data.dao.SuggestionWithProduct) {
+                productNameTextView.text = item.name
+                quantityTextView.text = item.suggestedQuantity.toString()
                 
-                val confidencePercent = String.format("%.0f", item.suggestion.confidenceScore)
+                val confidencePercent = String.format("%.0f", item.confidenceScore)
                 confidenceTextView.text = "$confidencePercent%"
             }
         }

@@ -24,6 +24,9 @@ interface ProductDao {
     @Query("SELECT DISTINCT category FROM products ORDER BY category")
     fun getAllCategories(): Flow<List<String>>
     
+    @Query("SELECT * FROM products WHERE id IN (:ids) ORDER BY category, name")
+    fun getProductsByIds(ids: List<Int>): Flow<List<Product>>
+    
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(product: Product): Long
     
