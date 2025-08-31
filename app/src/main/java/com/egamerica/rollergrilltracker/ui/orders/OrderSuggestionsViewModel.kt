@@ -13,6 +13,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
@@ -146,6 +148,9 @@ class OrderSuggestionsViewModel @Inject constructor(
 
     private suspend fun generateOrderSuggestions(date: String) {
         try {
+            // Convert string date to LocalDate
+            val localDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+            
             // Get all active products
             val products = productRepository.getActiveProducts().first()
             
@@ -159,9 +164,8 @@ class OrderSuggestionsViewModel @Inject constructor(
                 
                 OrderSuggestion(
                     id = 0, // Room will generate the ID
-                    date = date,
+                    date = localDate,
                     productId = product.id,
-                    unitsPerCase = unitsPerCase,
                     suggestedCases = suggestedCases,
                     suggestedUnits = suggestedUnits
                 )
