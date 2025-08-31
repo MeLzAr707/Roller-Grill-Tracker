@@ -18,6 +18,9 @@ interface ProductDao {
     @Query("SELECT * FROM products WHERE id = :id")
     suspend fun getProductById(id: Int): Product?
     
+    @Query("SELECT * FROM products WHERE id IN (:ids)")
+    fun getProductsByIds(ids: List<Int>): Flow<List<Product>>
+    
     @Query("SELECT * FROM products WHERE barcode = :barcode")
     suspend fun getProductByBarcode(barcode: String): Product?
     
