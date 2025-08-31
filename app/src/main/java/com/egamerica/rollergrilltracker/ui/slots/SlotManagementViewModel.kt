@@ -88,9 +88,13 @@ class SlotManagementViewModel @Inject constructor(
                 val assignments = _slotAssignments.value?.get(slotNumber) ?: emptyList()
                 
                 if (assignments.isNotEmpty()) {
-                    val productIds = assignments.map { it.productId }
-                    val products = productRepository.getProductsByIds(productIds).first()
-                    _currentSlotProducts.value = products
+                    val productIds = assignments.mapNotNull { it.productId }
+                    if (productIds.isNotEmpty()) {
+                        val products = productRepository.getProductsByIds(productIds)
+                        _currentSlotProducts.value = products
+                    } else {
+                        _currentSlotProducts.value = emptyList()
+                    }
                 } else {
                     _currentSlotProducts.value = emptyList()
                 }

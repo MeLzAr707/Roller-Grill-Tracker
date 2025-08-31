@@ -13,6 +13,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.ZoneId
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
@@ -73,10 +75,10 @@ class DashboardViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val today = Calendar.getInstance().time
-                val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
-                val todayFormatted = dateFormat.format(today)
+                // Convert to LocalDate
+                val todayLocalDate = today.toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
                 
-                val salesEntries = salesRepository.getSalesEntriesByDate(todayFormatted).first()
+                val salesEntries = salesRepository.getSalesEntriesByDate(todayLocalDate).first()
                 val totalSales = salesEntries.sumOf { entry ->
                     salesRepository.getSalesDetailsBySalesEntryId(entry.id).first().sumOf { it.quantity }
                 }
@@ -92,10 +94,10 @@ class DashboardViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val today = Calendar.getInstance().time
-                val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
-                val todayFormatted = dateFormat.format(today)
+                // Convert to LocalDate
+                val todayLocalDate = today.toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
                 
-                val wasteEntries = wasteRepository.getWasteEntriesByDate(todayFormatted).first()
+                val wasteEntries = wasteRepository.getWasteEntriesByDate(todayLocalDate).first()
                 val totalWaste = wasteEntries.sumOf { entry ->
                     wasteRepository.getWasteDetailsByWasteEntryId(entry.id).first().sumOf { it.quantity }
                 }

@@ -12,6 +12,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.ZoneId
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
@@ -50,14 +52,14 @@ class InventoryViewModel @Inject constructor(
             _isLoading.value = true
             try {
                 val date = _selectedDate.value ?: return@launch
-                val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
-                val formattedDate = dateFormat.format(date)
+                // Convert Date to LocalDate
+                val localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
                 
                 // Get all active products
                 val products = productRepository.getActiveProducts().first()
                 
                 // Get inventory counts for the selected date
-                val inventoryCounts = inventoryRepository.getInventoryCountsByDate(formattedDate).first()
+                val inventoryCounts = inventoryRepository.getInventoryCountsForDate(localDate)
                 
                 // Create inventory items by combining products and counts
                 val items = products.map { product ->

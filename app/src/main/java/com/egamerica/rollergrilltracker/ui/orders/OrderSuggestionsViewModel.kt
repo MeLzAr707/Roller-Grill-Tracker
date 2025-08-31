@@ -13,6 +13,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.ZoneId
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
@@ -102,26 +104,29 @@ class OrderSuggestionsViewModel @Inject constructor(
             _isLoading.value = true
             try {
                 val date = _selectedDate.value ?: return@launch
-                val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
-                val formattedDate = dateFormat.format(date)
+                // Convert Date to LocalDate
+                val localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
                 
                 // Get order suggestions for the selected date
-                val suggestions = orderSuggestionRepository.getOrderSuggestionsByDate(formattedDate).first()
+                val suggestions = orderSuggestionRepository.getOrderSuggestionsForDate(localDate)
                 
                 // If no suggestions exist, generate them
                 if (suggestions.isEmpty()) {
-                    generateOrderSuggestions(formattedDate)
+                    orderSuggestionRepository.generateOrderSuggestions(localDate)
                     return@launch
                 }
                 
-                // Get products
-                val productIds = suggestions.map { it.productId }
-                val products = productRepository.getProductsByIds(productIds).first()
-                val productMap = products.associateBy { it.id }
-                
                 // Create order suggestion items
-                val items = suggestions.mapNotNull { suggestion ->
-                    val product = productMap[suggestion.productId] ?: return@mapNotNull null
+                val items = suggestions.map { suggestion ->
+                    // Create Product object from the suggestion data
+                    val product = Product(
+                        id = suggestion.productId,
+                        name = suggestion.productName,
+                        category = suggestion.category,
+                        barcode = "", // Not available in the query, set to empty
+                        isActive = true, // Assuming active since it's in suggestions
+                        inStock = true // Assuming in stock since it's in suggestions
+                    )
                     
                     OrderSuggestionItem(
                         product = product,
@@ -141,39 +146,6 @@ class OrderSuggestionsViewModel @Inject constructor(
             } finally {
                 _isLoading.value = false
             }
-        }
-    }
-
-    private suspend fun generateOrderSuggestions(date: String) {
-        try {
-            // Get all active products
-            val products = productRepository.getActiveProducts().first()
-            
-            // Generate suggestions for each product
-            val suggestions = products.map { product ->
-                // In a real app, this would use historical data and complex algorithms
-                // For now, we'll use simple defaults
-                val unitsPerCase = 12
-                val suggestedCases = (1..3).random() // Random number between 1 and 3
-                val suggestedUnits = (0..unitsPerCase - 1).random() // Random number between 0 and unitsPerCase-1
-                
-                OrderSuggestion(
-                    id = 0, // Room will generate the ID
-                    date = date,
-                    productId = product.id,
-                    unitsPerCase = unitsPerCase,
-                    suggestedCases = suggestedCases,
-                    suggestedUnits = suggestedUnits
-                )
-            }
-            
-            // Save the suggestions
-            orderSuggestionRepository.insertOrderSuggestions(suggestions)
-            
-            // Reload the suggestions
-            loadOrderSuggestions()
-        } catch (e: Exception) {
-            // Handle error
         }
     }
 

@@ -58,6 +58,15 @@ class ProductRepository @Inject constructor(
         }
     }
     
+    suspend fun getProductsByIds(productIds: List<Int>): List<Product> {
+        return try {
+            productDao.getProductsByIds(productIds)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error getting products by IDs: ${e.message}", e)
+            throw RepositoryException("Failed to get products by IDs", e)
+        }
+    }
+    
     fun getAllCategories(): Flow<List<String>> {
         return productDao.getAllCategories()
             .catch { e ->
@@ -131,5 +140,3 @@ class ProductRepository @Inject constructor(
         }
     }
 }
-
-class RepositoryException(message: String, cause: Throwable? = null) : Exception(message, cause)

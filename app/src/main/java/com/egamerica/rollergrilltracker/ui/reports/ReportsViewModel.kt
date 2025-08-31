@@ -12,6 +12,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.ZoneId
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
@@ -76,15 +78,15 @@ class ReportsViewModel @Inject constructor(
                 val end = _endDate.value ?: return@launch
                 val type = _reportType.value ?: return@launch
                 
-                val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.US)
-                val startFormatted = dateFormat.format(start)
-                val endFormatted = dateFormat.format(end)
+                // Convert Date to LocalDate
+                val startLocalDate = start.toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
+                val endLocalDate = end.toInstant().atZone(ZoneId.systemDefault()).toLocalDate()
                 
                 when (type) {
-                    ReportType.SALES -> loadSalesReport(startFormatted, endFormatted)
-                    ReportType.WASTE -> loadWasteReport(startFormatted, endFormatted)
-                    ReportType.SALES_VS_WASTE -> loadSalesVsWasteReport(startFormatted, endFormatted)
-                    ReportType.CUSTOM -> loadCustomReport(startFormatted, endFormatted)
+                    ReportType.SALES -> loadSalesReport(startLocalDate, endLocalDate)
+                    ReportType.WASTE -> loadWasteReport(startLocalDate, endLocalDate)
+                    ReportType.SALES_VS_WASTE -> loadSalesVsWasteReport(startLocalDate, endLocalDate)
+                    ReportType.CUSTOM -> loadCustomReport(startLocalDate, endLocalDate)
                 }
             } catch (e: Exception) {
                 // Handle error
@@ -94,7 +96,7 @@ class ReportsViewModel @Inject constructor(
         }
     }
 
-    private suspend fun loadSalesReport(startDate: String, endDate: String) {
+    private suspend fun loadSalesReport(startDate: LocalDate, endDate: LocalDate) {
         val salesEntries = salesRepository.getSalesEntriesByDateRange(startDate, endDate).first()
         
         val productSales = mutableMapOf<Int, Int>()
@@ -124,7 +126,7 @@ class ReportsViewModel @Inject constructor(
         _topProducts.value = performances.take(10)
     }
 
-    private suspend fun loadWasteReport(startDate: String, endDate: String) {
+    private suspend fun loadWasteReport(startDate: LocalDate, endDate: LocalDate) {
         val wasteEntries = wasteRepository.getWasteEntriesByDateRange(startDate, endDate).first()
         
         val productWaste = mutableMapOf<Int, Int>()
@@ -154,7 +156,7 @@ class ReportsViewModel @Inject constructor(
         _topProducts.value = performances.take(10)
     }
 
-    private suspend fun loadSalesVsWasteReport(startDate: String, endDate: String) {
+    private suspend fun loadSalesVsWasteReport(startDate: LocalDate, endDate: LocalDate) {
         val salesEntries = salesRepository.getSalesEntriesByDateRange(startDate, endDate).first()
         val wasteEntries = wasteRepository.getWasteEntriesByDateRange(startDate, endDate).first()
         
@@ -226,7 +228,7 @@ class ReportsViewModel @Inject constructor(
         )
     }
 
-    private suspend fun loadCustomReport(startDate: String, endDate: String) {
+    private suspend fun loadCustomReport(startDate: LocalDate, endDate: LocalDate) {
         // Custom report implementation
         // For now, just load sales vs waste report
         loadSalesVsWasteReport(startDate, endDate)
