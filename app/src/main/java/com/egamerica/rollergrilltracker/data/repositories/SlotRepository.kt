@@ -64,7 +64,7 @@ class SlotRepository @Inject constructor(
     }
     
     // Added methods to match ViewModel calls
-    suspend fun getAllSlotAssignments(): Flow<List<SlotAssignment>> {
+    fun getAllSlotAssignments(): Flow<List<SlotAssignment>> {
         return slotDao.getAllSlotAssignments()
             .catch { e ->
                 Log.e(TAG, "Error getting all slot assignments: ${e.message}", e)
