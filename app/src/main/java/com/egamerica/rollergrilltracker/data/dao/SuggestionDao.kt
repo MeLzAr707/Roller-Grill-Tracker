@@ -36,6 +36,16 @@ interface SuggestionDao {
     
     @Query("DELETE FROM suggestions WHERE date < :date")
     suspend fun deleteOldSuggestions(date: LocalDate)
+    
+    @Query("""
+        SELECT s.*, p.name, p.category
+        FROM suggestions s
+        INNER JOIN products p ON s.productId = p.id
+        WHERE s.date >= date('now')
+        ORDER BY s.confidenceScore DESC, s.suggestedQuantity DESC
+        LIMIT :limit
+    """)
+    fun getTopSuggestions(limit: Int): Flow<List<SuggestionWithProduct>>
 }
 
 data class SuggestionWithProduct(

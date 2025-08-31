@@ -112,7 +112,7 @@ class DashboardViewModel @Inject constructor(
             try {
                 val suggestions = suggestionRepository.getTopSuggestions(3).first()
                 _topSuggestions.value = suggestions.map { suggestion ->
-                    "${suggestion.productName}: ${suggestion.suggestedQuantity} items (${suggestion.confidenceScore}% confidence)"
+                    "${suggestion.name}: ${suggestion.suggestedQuantity} items (${suggestion.confidenceScore}% confidence)"
                 }
             } catch (e: Exception) {
                 _topSuggestions.value = emptyList()

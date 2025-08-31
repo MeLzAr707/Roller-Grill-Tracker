@@ -10,6 +10,7 @@ import com.egamerica.rollergrilltracker.data.entities.SalesDetail
 import com.egamerica.rollergrilltracker.data.entities.SalesEntry
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flow
 import java.time.LocalDate
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -116,6 +117,45 @@ class SalesRepository @Inject constructor(
         } catch (e: Exception) {
             Log.e(TAG, "Error getting product sales by time period: ${e.message}", e)
             throw RepositoryException("Failed to get product sales by time period", e)
+        }
+    }
+    
+    // Missing methods that are called from ViewModels
+    fun getSalesEntryByDateAndTimePeriod(date: LocalDate, timePeriodId: Int): Flow<SalesEntry?> {
+        return flow {
+            try {
+                emit(salesEntryDao.getSalesEntryByDateAndPeriod(date, timePeriodId))
+            } catch (e: Exception) {
+                Log.e(TAG, "Error getting sales entry by date and time period: ${e.message}", e)
+                throw RepositoryException("Failed to get sales entry by date and time period", e)
+            }
+        }
+    }
+
+    suspend fun insertSalesEntry(salesEntry: SalesEntry): Long {
+        return try {
+            salesEntryDao.insert(salesEntry)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error inserting sales entry: ${e.message}", e)
+            throw RepositoryException("Failed to insert sales entry", e)
+        }
+    }
+
+    suspend fun deleteSalesDetailsBySalesEntryId(salesEntryId: Int) {
+        try {
+            salesDetailDao.deleteBySalesEntryId(salesEntryId)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error deleting sales details by sales entry ID: ${e.message}", e)
+            throw RepositoryException("Failed to delete sales details by sales entry ID", e)
+        }
+    }
+
+    suspend fun insertSalesDetails(salesDetails: List<SalesDetail>) {
+        try {
+            salesDetailDao.insertAll(salesDetails)
+        } catch (e: Exception) {
+            Log.e(TAG, "Error inserting sales details: ${e.message}", e)
+            throw RepositoryException("Failed to insert sales details", e)
         }
     }
 }

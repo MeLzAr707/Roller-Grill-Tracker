@@ -103,4 +103,16 @@ class SettingsRepository @Inject constructor(
             throw RepositoryException("Failed to delete setting", e)
         }
     }
+    
+    // Missing method that is called from ViewModels
+    suspend fun updateSettings(settings: List<Setting>) {
+        try {
+            settings.forEach { setting ->
+                saveSetting(setting.key, setting.value)
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Error updating settings: ${e.message}", e)
+            throw RepositoryException("Failed to update settings", e)
+        }
+    }
 }
