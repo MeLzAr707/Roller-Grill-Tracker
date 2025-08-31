@@ -2,6 +2,7 @@ package com.egamerica.rollergrilltracker.data.dao
 
 import androidx.room.*
 import com.egamerica.rollergrilltracker.data.entities.OrderSuggestion
+import com.egamerica.rollergrilltracker.data.models.OrderSuggestionWithProduct
 import java.time.LocalDate
 import java.time.LocalDateTime
 
@@ -28,15 +29,3 @@ interface OrderSuggestionDao {
     @Query("DELETE FROM order_suggestions WHERE date = :date")
     suspend fun deleteOrderSuggestionsForDate(date: LocalDate)
 }
-
-data class OrderSuggestionWithProduct(
-    val id: Int,
-    val date: LocalDate,
-    val productId: Int,
-    val suggestedCases: Int,
-    val suggestedUnits: Int,
-    val calculatedAt: LocalDateTime,
-    val productName: String,
-    val category: String,
-    val unitsPerCase: Int
-)

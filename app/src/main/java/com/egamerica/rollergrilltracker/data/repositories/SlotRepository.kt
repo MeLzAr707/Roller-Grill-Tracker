@@ -2,8 +2,8 @@ package com.egamerica.rollergrilltracker.data.repositories
 
 import android.util.Log
 import com.egamerica.rollergrilltracker.data.dao.SlotDao
-import com.egamerica.rollergrilltracker.data.dao.SlotWithProduct
 import com.egamerica.rollergrilltracker.data.entities.SlotAssignment
+import com.egamerica.rollergrilltracker.data.models.SlotWithProduct
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import java.time.LocalDateTime

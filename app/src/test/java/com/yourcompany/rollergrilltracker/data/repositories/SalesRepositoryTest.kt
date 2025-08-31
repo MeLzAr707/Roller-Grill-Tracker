@@ -1,11 +1,11 @@
 package com.egamerica.rollergrilltracker.data.repositories
 
-import com.egamerica.rollergrilltracker.data.dao.ProductSalesByTimePeriod
-import com.egamerica.rollergrilltracker.data.dao.ProductSalesSummary
 import com.egamerica.rollergrilltracker.data.dao.SalesDetailDao
 import com.egamerica.rollergrilltracker.data.dao.SalesEntryDao
 import com.egamerica.rollergrilltracker.data.entities.SalesDetail
 import com.egamerica.rollergrilltracker.data.entities.SalesEntry
+import com.egamerica.rollergrilltracker.data.models.ProductSalesByTimePeriod
+import com.egamerica.rollergrilltracker.data.models.ProductSalesSummary
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
